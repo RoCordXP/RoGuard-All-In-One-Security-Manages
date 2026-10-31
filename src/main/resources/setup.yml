@@ -1,0 +1,88 @@
+# ============================================================
+#              RoGuard  -  Discord and Network Setup
+#         Security bot, 2FA bot, chat bot and Anti-VPN.
+# ============================================================
+
+
+# ============================================================
+#                       SECURITY BOT
+#          Keep this bot on a private staff-only server.
+# ============================================================
+security-bot:
+  token: "YOUR_SECURITY_BOT_TOKEN_HERE"
+
+  channels:
+    # Command approval requests and their results.
+    verify: "000000000000000000"
+    # Every command run by players and console.
+    command-log: "000000000000000000"
+    # Live console mirror. Messages sent here run as console.
+    console: "000000000000000000"
+    # VPN and proxy detections.
+    ip-log: "000000000000000000"
+
+  # Seconds a pending approval stays valid.
+  verify-timeout: 60
+
+  # Discord user ids allowed to run console commands.
+  # Leave empty to allow everyone who can see the console channel.
+  console-allowed-users: []
+
+
+# ============================================================
+#                         2FA BOT
+#            Place this bot on your public server.
+# ============================================================
+twofa-bot:
+  token: "YOUR_2FA_BOT_TOKEN_HERE"
+
+  channels:
+    # Players send their six digit code here.
+    link: "000000000000000000"
+    # Successful links are recorded here.
+    link-log: "000000000000000000"
+
+  # Seconds a link code stays valid.
+  code-expire: 300
+
+
+# ============================================================
+#                         CHAT BOT
+#            Place this bot on your public server.
+# ============================================================
+chat-bot:
+  token: "YOUR_CHAT_BOT_TOKEN_HERE"
+
+  # Channel used for the Minecraft chat bridge.
+  channel: "000000000000000000"
+
+  # Webhook in that channel. Shows player skins and names.
+  # Leave empty to send plain bot messages instead.
+  webhook: ""
+
+  server-ip: "play.yourserver.com"
+
+  # Reply sent when someone types ip in any channel.
+  ip-response:
+    - ":globe_with_meridians: IP: play.yourserver.com"
+    - ":joystick: Port: 25565"
+    - ":video_game: Version: 1.21.x"
+
+
+# ============================================================
+#                         ANTI-VPN
+# ============================================================
+anti-vpn:
+  kick-message: "&cVPN or proxy detected. Please disable it and rejoin."
+  bypass-players:
+    - "Owner"
+
+
+# ============================================================
+#                      PLAYER MANAGER
+# ============================================================
+player-manager:
+  # Allow an administrator to open their own inventory.
+  allow-self-inventory: true
+  # Players shown on one page of the list.
+  page-size: 20

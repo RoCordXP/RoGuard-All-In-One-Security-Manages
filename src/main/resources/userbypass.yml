@@ -1,0 +1,14 @@
+# ============================================================
+#                  RoGuard  -  Bypass List
+#
+# Operator status never grants a bypass.
+# This file is the only way to exempt a player.
+# ============================================================
+
+# Always exempt from command verification and blocked commands.
+permanent:
+  - "Owner"
+
+# Exempt until the player disconnects or the server restarts.
+# Cleared automatically, no command can write to this list.
+temporary: []

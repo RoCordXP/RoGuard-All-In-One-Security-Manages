@@ -1,0 +1,55 @@
+name: RoGuard
+version: 1.4
+main: com.roguard.RoGuard
+api-version: '1.21'
+description: Complete Server Security, Auth, 2FA and Discord Integration
+author: RoCord
+
+commands:
+  roguard:
+    description: RoGuard main command
+    usage: /roguard <reload|status|settings|playermanager>
+    aliases: [rg]
+  login:
+    description: Log in to your account
+    usage: /login <password>
+    aliases: [l]
+  register:
+    description: Create your account
+    usage: /register <password> <password>
+    aliases: [reg]
+  changepassword:
+    description: Change your password
+    usage: /changepassword <old> <new>
+    aliases: [changepass, cp]
+  unregister:
+    description: Unregister a player
+    usage: /unregister <player>
+  2fa:
+    description: Discord two factor authentication
+    usage: /2fa <start|disable>
+
+permissions:
+  roguard.reload:
+    default: op
+  roguard.status:
+    default: op
+  roguard.settings:
+    default: op
+  roguard.playermanager:
+    default: op
+  roguard.punish:
+    default: op
+  roguard.unregister:
+    default: op
+  roguard.bypass:
+    default: false
+  roguard.*:
+    default: op
+    children:
+      roguard.reload: true
+      roguard.status: true
+      roguard.settings: true
+      roguard.playermanager: true
+      roguard.punish: true
+      roguard.unregister: true

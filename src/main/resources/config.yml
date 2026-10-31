@@ -1,0 +1,103 @@
+# ============================================================
+#                  RoGuard  -  Master Config
+#       Every major feature can be switched on or off here.
+# ============================================================
+
+# Language file name inside the language folder.
+# Available: english.yml, vietnamese.yml, chinnese.yml,
+#            thailand.yml, portugal.yml, spain.yml, russian.yml
+language: english.yml
+
+
+# ============================================================
+#                        FEATURES
+# ============================================================
+features:
+
+  # Password login and registration.
+  auth: true
+
+  # Discord two factor verification for linked players.
+  player-2fa: true
+
+  # Dangerous commands must be approved through Discord.
+  command-verification: true
+
+  # Every executed command is logged to Discord.
+  command-log: true
+
+  # Mirror the server console into a Discord channel.
+  console-mirror: true
+
+  # Remove operator status when a player disconnects.
+  auto-deop: true
+
+  # Block VPN, proxy and Tor connections.
+  anti-vpn: true
+
+  # Editing a Shopkeeper requires Discord approval.
+  shopkeeper-protection: true
+
+  # Changing gamemode requires Discord approval.
+  gamemode-protection: true
+
+  # Minecraft and Discord chat bridge.
+  chat-bridge: true
+
+  # The /roguard playermanager dialog.
+  player-manager: true
+
+
+# ============================================================
+#                      AUTHENTICATION
+# ============================================================
+auth:
+
+  # Use the native Minecraft dialog on the loading screen.
+  # Needs Paper or Purpur 1.21.7 or newer.
+  # Older clients automatically fall back to chat login.
+  use-dialog: true
+
+  min-password-length: 6
+
+  # Seconds before an unauthenticated player is disconnected.
+  login-timeout: 120
+
+  max-login-attempts: 5
+
+  # Skip the password prompt on a quick reconnect from the same address.
+  session-enabled: false
+  session-timeout-minutes: 30
+
+  # Chat login protection.
+  # The player is hidden and moved away so their base stays private.
+  chat-login:
+    # Blind the player until they authenticate.
+    blindness: true
+    # Teleport to a safe holding spot and restore the real location after login.
+    hide-location: true
+    # Height used for the temporary holding spot.
+    hold-height: 320
+    # Hide other players from the unauthenticated player.
+    hide-players: true
+
+
+# ============================================================
+#                       PERFORMANCE
+# ============================================================
+performance:
+
+  # Seconds a configuration value stays cached.
+  # Higher values mean fewer disk reads and less lag.
+  config-cache-seconds: 30
+
+  # Send Discord messages off the main thread.
+  async-discord: true
+
+  # Group console lines before sending them to Discord.
+  console-batch-size: 20
+  console-batch-seconds: 3
+
+  # Detect commands dispatched by other plugins.
+  # Disabling this removes a stack walk on every command.
+  plugin-dispatch-detection: true

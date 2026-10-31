@@ -1,0 +1,87 @@
+# ============================================================
+#                  RoGuard  -  Command Control
+# ============================================================
+
+
+# ============================================================
+#                    VERIFICATION REQUIRED
+# Matching is prefix based. Adding eco also protects
+# eco give, eco take and eco reset.
+# Adding // protects every WorldEdit command.
+# ============================================================
+verify-required:
+  - "op"
+  - "deop"
+  - "eco"
+  - "economy"
+  - "stop"
+  - "ban"
+  - "kick"
+  - "whitelist"
+  - "gamemode"
+  - "give"
+  - "tp"
+  - "lp"
+  - "perm"
+  - "pex"
+  - "//"
+
+
+# ============================================================
+#                     COMPLETELY BLOCKED
+# These commands never run. Only players listed in
+# userbypass.yml may use them.
+# ============================================================
+blocked:
+  - "plugman"
+  - "reload"
+  - "rl"
+  - "restart"
+  - "bukkit:reload"
+  - "minecraft:reload"
+
+
+# ============================================================
+#                   TRUSTED PLUGIN BYPASS
+# Commands dispatched internally by these plugins skip
+# verification so menus and NPCs keep working.
+# ============================================================
+plugin-bypass:
+  - "deluxemenus"
+  - "citizens"
+  - "npc"
+  - "denizen"
+  - "commandnpc"
+  - "axafkzone"
+  - "axafk"
+  - "mythicmobs"
+  - "itemsadder"
+
+
+# ============================================================
+#                  SHOPKEEPER PROTECTION
+# ============================================================
+shopkeeper:
+  enabled: true
+  # Seconds of edit access granted after approval.
+  bypass-duration: 60
+  # Entity types used by Shopkeepers. Used as a fallback
+  # when the plugin metadata cannot be read.
+  detect-metadata:
+    - "shopkeeper"
+    - "shopkeepers"
+
+
+# ============================================================
+#                  GAMEMODE PROTECTION
+# Covers /gamemode, /gm, aliases and the F3+F4 menu.
+# ============================================================
+gamemode:
+  enabled: true
+  aliases:
+    - "gamemode"
+    - "gm"
+    - "gmc"
+    - "gms"
+    - "gma"
+    - "gmsp"
